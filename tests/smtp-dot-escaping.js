@@ -23,7 +23,7 @@ module.exports["Email sent containing escaped dots"] = {
 
     tearDown: function(done) {
         this.server.close((function() {
-            this.smtpServer.server.end((function() {
+            this.smtpServer.server.close((function() {
                 done();
             }).bind(this));
         }).bind(this));
@@ -42,10 +42,10 @@ module.exports["Email sent containing escaped dots"] = {
             var resultingMessage = this.server.getMailbox('inbox').messages[0];
             test.ok(resultingMessage);
             messageLines = resultingMessage.raw.split('\r\n');
-            test.strictEqual('This is an RFC Test for my mail server', messageLines[1]);
-            test.strictEqual('. This double dot should be single in the received mail', messageLines[2]);
-            test.strictEqual('.', messageLines[3]);
-            test.strictEqual('The previous line should only be a dot', messageLines[4]);
+            test.strictEqual('This is an RFC Test for my mail server', messageLines[0]);
+            test.strictEqual('. This double dot should be single in the received mail', messageLines[1]);
+            test.strictEqual('.', messageLines[2]);
+            test.strictEqual('The previous line should only be a dot', messageLines[3]);
             test.done();
         }).bind(this));
     }
