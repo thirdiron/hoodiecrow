@@ -19,6 +19,7 @@
     "-W100": true,
     "quotmark": "double",
     "bitwise": true,
+    "esversion": 6,
 
     "globals": {
         "define": true
