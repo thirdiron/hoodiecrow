@@ -19,8 +19,7 @@
     "smtp-server": "^3.5.0"
   },
   "optionalDependencies": {
-    "optimist": "~0.6.1",
-    "simplesmtp": "~0.3.35"
+    "optimist": "~0.6.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
